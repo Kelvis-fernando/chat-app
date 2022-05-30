@@ -2,15 +2,16 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 
+import styles from "../../styles/auth/SignUp.module.css";
+
 const Register: NextPage = () => {
    return (
-      <div className="flex flex-column justify-center align-center bg-zinc-700 h-[100vh] text-white">
-         <Head>
-            <title>Register</title>
-            <meta name="description" content="Register page" />
-            <link rel="icon" href="/favicon.ico" />
-         </Head>
-         <main>
+      <main className={styles.signUp}>
+         <div>
+            <header className="text-center">
+               <h1 className="text-xl">Here you can create your own account</h1>
+               <h3>Lets do it!</h3>
+            </header>
             <form>
                <div>
                   <label
@@ -24,7 +25,7 @@ const Register: NextPage = () => {
                         type="text"
                         name="username"
                         id="username"
-                        className="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none text-zinc-800"
+                        className={styles.signupInput}
                         placeholder="Your username"
                      />
                   </div>
@@ -41,7 +42,7 @@ const Register: NextPage = () => {
                         type="email"
                         name="email"
                         id="email"
-                        className="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none text-zinc-800"
+                        className={styles.signupInput}
                         placeholder="your.email@example.com"
                      />
                   </div>
@@ -58,7 +59,7 @@ const Register: NextPage = () => {
                         type="password"
                         name="password"
                         id="password"
-                        className="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none text-zinc-800"
+                        className={styles.signupInput}
                         placeholder="Your password"
                      />
                   </div>
@@ -75,22 +76,20 @@ const Register: NextPage = () => {
                         type="password"
                         name="password"
                         id="password"
-                        className="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none text-zinc-800"
+                        className={styles.signupInput}
                         placeholder="Confirm your password"
                      />
                   </div>
                </div>
                <div className="my-6 flex justify-center">
-                  <button className="bg-purple-700 hover:bg-purple-800 w-52 py-2.5 text-sm leading-5 rounded-md font-semibold text-white duration-100 transition ease-in-out delay-100">
-                     Register
-                  </button>
+                  <button className={styles.signupButton}>Sign Up</button>
                </div>
             </form>
-            <div className="flex">
-               <Link href={"/auth/Login"}>Alredy have a account?</Link>
+            <div className="text-center">
+               <Link href={"/auth/signIn"}>Alredy have a account?</Link>
             </div>
-         </main>
-      </div>
+         </div>
+      </main>
    );
 };
 

@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Login from "./auth/Login";
+import SignIn from "./auth/signIn";
 
 const Home: NextPage = () => {
    return (
@@ -13,7 +13,7 @@ const Home: NextPage = () => {
          </Head>
 
          <main className={styles.main}>
-            <Login />
+            <SignIn />
          </main>
       </div>
    );
