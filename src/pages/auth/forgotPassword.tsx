@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import styles from "../../styles/auth/ForgotPassword.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
+import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 
 interface ForgotPasswordInput {
    email: string;
@@ -15,18 +16,18 @@ const ForgotPassword: NextPage = () => {
       formState: { errors },
    } = useForm<ForgotPasswordInput>();
 
-   const onSubmit: SubmitHandler<ForgotPasswordInput> = (resp) => console.log(resp);
+   const onSubmit: SubmitHandler<ForgotPasswordInput> = (resp) =>
+      console.log(resp);
 
    return (
       <main className={styles.ForgotPassword}>
          <div>
-            <header className="text-center">
-               <h1 className="text-xl">Forgot you password?</h1>
-               <h3>
-                  No problem, tell us your e-mail and we will recover it for
-                  you!
-               </h3>
-            </header>
+            <TitleAndSubtitle
+               title={"Forgot you password?"}
+               subtitle={
+                  "No problem, tell us your e-mail and we will recover it for you!"
+               }
+            />
             <form onSubmit={handleSubmit(onSubmit)}>
                <div className="mt-6">
                   <label

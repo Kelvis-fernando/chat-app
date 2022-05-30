@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import styles from "../../styles/auth/SignIn.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
+import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 
 interface signIn {
    email: string;
@@ -21,12 +22,10 @@ const SignIn: NextPage = () => {
    return (
       <main className={styles.signIn}>
          <div>
-            <header className="text-center">
-               <h1 className="text-xl">
-                  Hello, welcome to the best chat app of my street
-               </h1>
-               <h3>Here is the place where you will login</h3>
-            </header>
+            <TitleAndSubtitle
+               title={"Hello, welcome to the best chat app of my street"}
+               subtitle={"Here is the place where you will login"}
+            />
             <form onSubmit={handleSubmit(onSubmit)}>
                {errors.email && <span>This field is required</span>}
                <div className="mt-6">

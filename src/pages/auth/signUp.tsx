@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import styles from "../../styles/auth/SignUp.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
+import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 
 interface SignUpInputs {
    username: string;
@@ -23,10 +24,10 @@ const SignUp: NextPage = () => {
    return (
       <main className={styles.signUp}>
          <div>
-            <header className="text-center">
-               <h1 className="text-xl">Here you can create your own account</h1>
-               <h3>Lets do it!</h3>
-            </header>
+            <TitleAndSubtitle
+               title={"Here you can create your own account"}
+               subtitle={"Lets do it!"}
+            />
             <form onSubmit={handleSubmit(onSubmit)}>
                <div>
                   <label
