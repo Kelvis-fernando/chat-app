@@ -2,14 +2,13 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import styles from "../../styles/auth/SignIn.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useEffect } from "react";
 
 interface signIn {
    email: string;
    password: string;
 }
 
-const Login: NextPage = () => {
+const SignIn: NextPage = () => {
    const {
       register,
       handleSubmit,
@@ -18,10 +17,6 @@ const Login: NextPage = () => {
    } = useForm<signIn>();
 
    const onSubmit: SubmitHandler<signIn> = (data) => console.log(data);
-
-   useEffect(() => {
-      console.log(watch("email"));
-   }, [onSubmit]);
 
    return (
       <main className={styles.signIn}>
@@ -85,4 +80,4 @@ const Login: NextPage = () => {
    );
 };
 
-export default Login;
+export default SignIn;

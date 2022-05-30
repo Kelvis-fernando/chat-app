@@ -10,7 +10,7 @@ interface SignUpInputs {
    confirmpassword: string;
 }
 
-const Register: NextPage = () => {
+const SignUp: NextPage = () => {
    const {
       register,
       handleSubmit,
@@ -114,4 +114,4 @@ const Register: NextPage = () => {
    );
 };
 
-export default Register;
+export default SignUp;
