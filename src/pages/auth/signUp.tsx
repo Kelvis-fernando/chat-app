@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "../../styles/auth/SignUp.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
+import { SignIn } from "phosphor-react";
 
 interface SignUpInputs {
    username: string;
@@ -108,7 +109,15 @@ const SignUp: NextPage = () => {
                </div>
             </form>
             <div className="text-center">
-               <Link href={"/auth/signIn"}>Alredy have a account?</Link>
+               <Link href={"/auth/signIn"}>
+                  <div className="iconPhosphor">
+                     <SignIn
+                        size={20}
+                        className=" hover:text-zinc-300 mt-1 mr-2"
+                     />
+                     <p>Alredy have a account?</p>
+                  </div>
+               </Link>
             </div>
          </div>
       </main>

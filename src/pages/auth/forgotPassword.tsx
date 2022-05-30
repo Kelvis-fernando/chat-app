@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "../../styles/auth/ForgotPassword.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
+import { ArrowLeft } from "phosphor-react";
 
 interface ForgotPasswordInput {
    email: string;
@@ -53,7 +54,15 @@ const ForgotPassword: NextPage = () => {
                   </button>
                </div>
                <div className="text-center">
-                  <Link href={"/auth/signIn"}>Back to sign up</Link>
+                  <Link href={"/auth/signIn"} className="relative">
+                     <div className="iconPhosphor">
+                        <ArrowLeft
+                           size={20}
+                           className=" hover:text-zinc-300 mt-1 mr-2"
+                        />
+                        <p>Back to sign up</p>
+                     </div>
+                  </Link>
                </div>
             </form>
          </div>

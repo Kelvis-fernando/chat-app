@@ -71,8 +71,16 @@ const SignIn: NextPage = () => {
                </div>
             </form>
             <div className={styles.links}>
-               <Link href={"/auth/signUp"}>Dont have a account?</Link>
-               <Link href={"/auth/forgotPassword"}>Forgot yout password?</Link>
+               <Link href={"/auth/signUp"}>
+                  <p className=" hover:text-zinc-300 mt-1 mr-2 cursor-pointer">
+                     Dont have a account?
+                  </p>
+               </Link>
+               <Link href={"/auth/forgotPassword"}>
+                  <p className=" hover:text-zinc-300 mt-1 mr-2 cursor-pointer">
+                     Forgot yout password?
+                  </p>
+               </Link>
             </div>
          </div>
       </main>

@@ -19,3 +19,7 @@ a {
 * {
    box-sizing: border-box;
 }
+
+.iconPhosphor {
+   @apply flex justify-center hover:text-zinc-300 cursor-pointer;
+}
