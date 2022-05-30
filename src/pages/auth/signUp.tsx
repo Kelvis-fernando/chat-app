@@ -1,10 +1,25 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import Link from "next/link";
-
 import styles from "../../styles/auth/SignUp.module.css";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+interface SignUpInputs {
+   username: string;
+   email: string;
+   password: string;
+   confirmpassword: string;
+}
 
 const Register: NextPage = () => {
+   const {
+      register,
+      handleSubmit,
+      watch,
+      formState: { errors },
+   } = useForm<SignUpInputs>();
+
+   const onSubmit: SubmitHandler<SignUpInputs> = (resp) => console.log(resp);
+
    return (
       <main className={styles.signUp}>
          <div>
@@ -12,7 +27,7 @@ const Register: NextPage = () => {
                <h1 className="text-xl">Here you can create your own account</h1>
                <h3>Lets do it!</h3>
             </header>
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
                <div>
                   <label
                      htmlFor="username"
@@ -22,6 +37,7 @@ const Register: NextPage = () => {
                   </label>
                   <div className="mt-1">
                      <input
+                        {...register("username", { required: true })}
                         type="text"
                         name="username"
                         id="username"
@@ -39,6 +55,7 @@ const Register: NextPage = () => {
                   </label>
                   <div className="mt-1">
                      <input
+                        {...register("email", { required: true })}
                         type="email"
                         name="email"
                         id="email"
@@ -56,6 +73,7 @@ const Register: NextPage = () => {
                   </label>
                   <div className="mt-1">
                      <input
+                        {...register("password", { required: true })}
                         type="password"
                         name="password"
                         id="password"
@@ -73,16 +91,19 @@ const Register: NextPage = () => {
                   </label>
                   <div className="mt-1">
                      <input
+                        {...register("confirmpassword", { required: true })}
                         type="password"
-                        name="password"
-                        id="password"
+                        name="confirmpassword"
+                        id="confirmpassword"
                         className={styles.signupInput}
                         placeholder="Confirm your password"
                      />
                   </div>
                </div>
                <div className="my-6 flex justify-center">
-                  <button className={styles.signupButton}>Sign Up</button>
+                  <button type="submit" className={styles.signupButton}>
+                     Sign Up
+                  </button>
                </div>
             </form>
             <div className="text-center">

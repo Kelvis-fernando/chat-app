@@ -1,8 +1,28 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import styles from "../../styles/auth/SignIn.module.css";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { useEffect } from "react";
+
+interface signIn {
+   email: string;
+   password: string;
+}
 
 const Login: NextPage = () => {
+   const {
+      register,
+      handleSubmit,
+      watch,
+      formState: { errors },
+   } = useForm<signIn>();
+
+   const onSubmit: SubmitHandler<signIn> = (data) => console.log(data);
+
+   useEffect(() => {
+      console.log(watch("email"));
+   }, [onSubmit]);
+
    return (
       <main className={styles.signIn}>
          <div>
@@ -12,7 +32,8 @@ const Login: NextPage = () => {
                </h1>
                <h3>Here is the place where you will login</h3>
             </header>
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}>
+               {errors.email && <span>This field is required</span>}
                <div className="mt-6">
                   <label
                      htmlFor="email"
@@ -22,11 +43,12 @@ const Login: NextPage = () => {
                   </label>
                   <div className="mt-1">
                      <input
+                        {...register("email", { required: true })}
                         type="email"
-                        name="email"
                         id="email"
                         className={styles.signinInput}
                         placeholder="your.email@example.com"
+                        required
                      />
                   </div>
                </div>
@@ -40,15 +62,18 @@ const Login: NextPage = () => {
                   <div className="mt-1">
                      <input
                         type="password"
-                        name="password"
                         id="password"
+                        {...register("password", { required: true })}
                         className={styles.signinInput}
                         placeholder="Your password"
+                        required
                      />
                   </div>
                </div>
                <div className="my-6 flex justify-center">
-                  <button className={styles.signinButton}>Login</button>
+                  <button type="submit" className={styles.signinButton}>
+                     Login
+                  </button>
                </div>
             </form>
             <div className={styles.links}>
