@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import styles from "../../styles/auth/SignUp.module.css";
+import styles from "../../styles/auth/SignUp.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 

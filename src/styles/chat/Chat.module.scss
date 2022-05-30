@@ -1,0 +1,11 @@
+.chat {
+   @apply flex justify-center relative;
+
+   .contacts {
+      @apply w-1/5 h-[100vh] bg-zinc-700;
+   }
+
+   .messageArea {
+      @apply w-4/5 h-[100vh] bg-zinc-600;
+   }
+}
