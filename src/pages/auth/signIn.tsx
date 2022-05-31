@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "../../styles/auth/SignIn.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
+import Image from "next/image";
 
 interface signIn {
    email: string;
@@ -21,10 +22,17 @@ const SignIn: NextPage = () => {
 
    return (
       <main className={styles.signIn}>
-         <div>
+         <div className={styles.formBox}>
+            <Image
+               className="flex justify-center"
+               src="/chatapp-logo.png"
+               alt="Logo App chat"
+               width={320}
+               height={100}
+            />
             <TitleAndSubtitle
-               title={"Hello, welcome to the best chat app of my street"}
-               subtitle={"Here is the place where you will login"}
+               title={"Welcome to Chat App"}
+               subtitle={"Lets talk! Sign In"}
             />
             <form onSubmit={handleSubmit(onSubmit)}>
                {errors.email && <span>This field is required</span>}

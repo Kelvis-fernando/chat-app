@@ -4,6 +4,7 @@ import styles from "../../styles/auth/ForgotPassword.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 import { ArrowLeft } from "phosphor-react";
+import Image from "next/image";
 
 interface ForgotPasswordInput {
    email: string;
@@ -22,12 +23,18 @@ const ForgotPassword: NextPage = () => {
 
    return (
       <main className={styles.ForgotPassword}>
-         <div>
+         <div className={styles.formBox}>
+            <Image
+               className="flex justify-center"
+               src="/chatapp-logo.png"
+               alt="Logo App chat"
+               width={320}
+               height={100}
+            />
+            s
             <TitleAndSubtitle
                title={"Forgot you password?"}
-               subtitle={
-                  "No problem, tell us your e-mail and we will recover it for you!"
-               }
+               subtitle={"No problem, we will recover it for you!"}
             />
             <form onSubmit={handleSubmit(onSubmit)}>
                <div className="mt-6">

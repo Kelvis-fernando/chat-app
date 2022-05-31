@@ -4,6 +4,7 @@ import styles from "../../styles/auth/SignUp.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 import { SignIn } from "phosphor-react";
+import Image from "next/image";
 
 interface SignUpInputs {
    username: string;
@@ -24,9 +25,16 @@ const SignUp: NextPage = () => {
 
    return (
       <main className={styles.signUp}>
-         <div>
+         <div className={styles.formBox}>
+            <Image
+               className="flex justify-center"
+               src="/chatapp-logo.png"
+               alt="Logo App chat"
+               width={320}
+               height={100}
+            />
             <TitleAndSubtitle
-               title={"Here you can create your own account"}
+               title={"Create your own account"}
                subtitle={"Lets do it!"}
             />
             <form onSubmit={handleSubmit(onSubmit)}>
