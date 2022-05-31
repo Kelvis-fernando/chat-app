@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import styles from "../styles/chat/Chat.module.scss";
 import HeaderChat from "../components/chat/HeaderChat";
 import InputToWriteMessage from "../components/chat/InputToWriteMessage";
+import Contacts from "../components/chat/Contacts";
 
 const Chat: NextPage = () => {
    return (
@@ -9,10 +10,15 @@ const Chat: NextPage = () => {
          <aside className={styles.contacts}>
             <InputToWriteMessage />
             <ul>
-               <li>Contatos</li>
-               <li>Contatos</li>
-               <li>Contatos</li>
-               <li>Contatos</li>
+               <li>
+                  <Contacts />
+               </li>
+               <li>
+                  <Contacts />
+               </li>
+               <li>
+                  <Contacts />
+               </li>
             </ul>
          </aside>
          <div className={styles.messageArea}>
