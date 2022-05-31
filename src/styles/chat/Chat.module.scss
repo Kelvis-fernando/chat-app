@@ -2,7 +2,7 @@
    @apply flex justify-center relative;
 
    .contactsArea {
-      @apply w-[35%] h-[100vh] bg-zinc-800 px-3 relative;
+      @apply w-[35%] h-[100vh] bg-zinc-800 px-5 relative;
    }
 
    .messageArea {
@@ -14,7 +14,8 @@
    }
 
    .contactsHeader {
-      @apply flex h-20;
+      align-items: center;
+      @apply flex h-10;
       justify-content: space-between;
    }
 }

@@ -24,7 +24,7 @@ const Chat = () => {
                </div>
                <button
                   onClick={() => setToogleInputView(!toogleInputView)}
-                  className="h-5 hover:text-zinc-300 absolute right-10"
+                  className="h-5 hover:text-zinc-300 absolute right-16"
                >
                   <MagnifyingGlass size={20} className=" font-bold" />
                </button>
@@ -33,17 +33,73 @@ const Chat = () => {
                   className="text-blue-700 hover:text-blue-600 font-bold"
                />
             </div>
-            <ul>
-               <li>
-                  <Contacts />
-               </li>
-               <li>
-                  <Contacts />
-               </li>
-               <li>
-                  <Contacts />
-               </li>
-            </ul>
+            <div className="overflow-scroll max-h-[85%] overflow-x-hidden scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin">
+               <ul>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+                  <li>
+                     <Contacts />
+                  </li>
+               </ul>
+            </div>
          </aside>
          <div className={styles.messageArea}>
             <HeaderChat />
