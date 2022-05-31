@@ -1,9 +1,8 @@
 .signUp {
-   align-items: center;
-   @apply flex justify-center bg-zinc-700 h-[100vh] text-white mt-14;
+   @apply flex justify-center bg-zinc-700 h-[100vh] text-white mt-2;
 
    .formBox {
-      @apply bg-zinc-600 p-5 rounded-lg z-50;
+      @apply bg-zinc-600 p-5 rounded-lg z-50 h-[95%];
    }
 
    .signupInput {

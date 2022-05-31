@@ -31,7 +31,6 @@ const ForgotPassword: NextPage = () => {
                width={320}
                height={100}
             />
-            s
             <TitleAndSubtitle
                title={"Forgot you password?"}
                subtitle={"No problem, we will recover it for you!"}
@@ -73,7 +72,11 @@ const ForgotPassword: NextPage = () => {
                </div>
             </form>
          </div>
-         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute bottom-0">
+         <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            className="absolute bottom-0"
+         >
             <path
                fill="#7e22ce"
                fillOpacity="2"

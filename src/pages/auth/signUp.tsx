@@ -74,59 +74,62 @@ const SignUp: NextPage = () => {
                      />
                   </div>
                </div>
-               <div className="mt-6">
-                  <label
-                     htmlFor="password"
-                     className="block text-sm font-medium my-3"
-                  >
-                     Password
-                  </label>
-                  <div className="mt-1">
-                     <input
-                        {...register("password", { required: true })}
-                        type="password"
-                        name="password"
-                        id="password"
-                        className={styles.signupInput}
-                        placeholder="Your password"
-                     />
+               <div className="flex">
+                  <div className="mt-3 pr-1">
+                     <label
+                        htmlFor="password"
+                        className="block text-sm font-medium my-3"
+                     >
+                        Password
+                     </label>
+                     <div className="mt-1">
+                        <input
+                           {...register("password", { required: true })}
+                           type="password"
+                           name="password"
+                           id="password"
+                           className={styles.signupInput}
+                           placeholder="Your password"
+                        />
+                     </div>
+                  </div>
+                  <div className="mt-3 pl-1">
+                     <label
+                        htmlFor="password"
+                        className="block text-sm font-medium my-3"
+                     >
+                        Confirm password
+                     </label>
+                     <div className="mt-1">
+                        <input
+                           {...register("confirmpassword", { required: true })}
+                           type="password"
+                           name="confirmpassword"
+                           id="confirmpassword"
+                           className={styles.signupInput}
+                           placeholder="Confirm your password"
+                        />
+                     </div>
                   </div>
                </div>
-               <div className="mt-6">
-                  <label
-                     htmlFor="password"
-                     className="block text-sm font-medium my-3"
-                  >
-                     Confirm password
-                  </label>
-                  <div className="mt-1">
-                     <input
-                        {...register("confirmpassword", { required: true })}
-                        type="password"
-                        name="confirmpassword"
-                        id="confirmpassword"
-                        className={styles.signupInput}
-                        placeholder="Confirm your password"
-                     />
-                  </div>
-               </div>
+
                <div className="my-6 flex justify-center">
                   <button type="submit" className={styles.signupButton}>
                      Sign Up
                   </button>
                </div>
+               <div className="text-center">
+                  <Link href={"/auth/signIn"}>
+                     <div className="iconPhosphor">
+                        <SignIn
+                           size={20}
+                           className=" hover:text-zinc-300 mt-1 mr-2"
+                        />
+                        <p>Alredy have a account?</p>
+                     </div>
+                  </Link>
+               </div>
             </form>
-            <div className="text-center">
-               <Link href={"/auth/signIn"}>
-                  <div className="iconPhosphor">
-                     <SignIn
-                        size={20}
-                        className=" hover:text-zinc-300 mt-1 mr-2"
-                     />
-                     <p>Alredy have a account?</p>
-                  </div>
-               </Link>
-            </div>
          </div>
          <svg
             xmlns="http://www.w3.org/2000/svg"
