@@ -1,11 +1,20 @@
 .chat {
    @apply flex justify-center relative;
 
-   .contacts {
-      @apply w-1/5 h-[100vh] bg-zinc-700;
+   .contactsArea {
+      @apply w-[35%] h-[100vh] bg-zinc-800 px-3 relative;
    }
 
    .messageArea {
       @apply w-4/5 h-[100vh] bg-zinc-600;
+   }
+
+   .chatInput {
+      @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm h-7 rounded-lg focus:ring-blue-500 focus:border-blue-500 pl-2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+   }
+
+   .contactsHeader {
+      @apply flex h-20;
+      justify-content: space-between;
    }
 }
