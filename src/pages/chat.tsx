@@ -4,6 +4,7 @@ import WriteAndSendMessage from "../components/chat/WriteAndSendMessage";
 import Contacts from "../components/chat/Contacts";
 import { Plus, MagnifyingGlass } from "phosphor-react";
 import { useState } from "react";
+import MessageLocal from "../components/chat/MessageLocal";
 
 const Chat = () => {
    const [toogleInputView, setToogleInputView] = useState(false);
@@ -103,7 +104,7 @@ const Chat = () => {
          </aside>
          <div className={styles.messageArea}>
             <HeaderChat />
-            <p>Chat</p>
+            <MessageLocal />
             <WriteAndSendMessage />
          </div>
       </main>
