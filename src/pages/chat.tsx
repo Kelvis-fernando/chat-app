@@ -1,6 +1,6 @@
 import styles from "../styles/chat/Chat.module.scss";
 import HeaderChat from "../components/chat/HeaderChat";
-import InputToWriteMessage from "../components/chat/InputToWriteMessage";
+import WriteAndSendMessage from "../components/chat/WriteAndSendMessage";
 import Contacts from "../components/chat/Contacts";
 import { Plus, MagnifyingGlass } from "phosphor-react";
 import { useState } from "react";
@@ -104,7 +104,7 @@ const Chat = () => {
          <div className={styles.messageArea}>
             <HeaderChat />
             <p>Chat</p>
-            <InputToWriteMessage />
+            <WriteAndSendMessage />
          </div>
       </main>
    );
