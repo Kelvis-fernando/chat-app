@@ -11,6 +11,10 @@
 # next.js
 /.next/
 /out/
+next.config.js
+.next.config.js
+/next.config.js
+*.config.js
 
 # production
 /build
