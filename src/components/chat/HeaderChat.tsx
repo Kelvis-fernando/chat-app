@@ -5,8 +5,13 @@ import { SignOut, Gear, Question } from "phosphor-react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../../styles/chat/Headerchat.module.scss";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../firebase.config";
 
 const HeaderChat: NextPage = () => {
+   const logout = async () => {
+      signOut(auth);
+   };
    return (
       <header className="border-b-[1px]">
          <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-zinc-900">
@@ -76,7 +81,10 @@ const HeaderChat: NextPage = () => {
                                     </Menu.Item>
                                     <Menu.Item>
                                        <Link href="/auth/signIn">
-                                          <span className={styles.dropdownLink}>
+                                          <span
+                                             className={styles.dropdownLink}
+                                             onClick={logout}
+                                          >
                                              <SignOut size={20} />
                                              Logout
                                           </span>

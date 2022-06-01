@@ -5,6 +5,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 import Image from "next/image";
 import { useState } from "react";
+import { auth } from "../../../firebase.config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 interface signIn {
    email: string;
@@ -13,7 +15,25 @@ interface signIn {
 
 const SignIn: NextPage = () => {
    const [emailAndPassword, setEmailAndPassword] = useState<signIn>();
-   const login = async () => {};
+   const login = async () => {
+      try {
+         if (
+            emailAndPassword?.email !== undefined &&
+            emailAndPassword?.password !== undefined
+         ) {
+            const user = await signInWithEmailAndPassword(
+               auth,
+               emailAndPassword?.email,
+               emailAndPassword?.password
+            );
+            console.log(user);
+            alert("Sucesso");
+            location.href = "/chat";
+         }
+      } catch (error) {
+         alert(error);
+      }
+   };
 
    const {
       register,
@@ -77,7 +97,11 @@ const SignIn: NextPage = () => {
                   </div>
                </div>
                <div className="my-6 flex justify-center">
-                  <button type="submit" className={styles.signinButton}>
+                  <button
+                     type="submit"
+                     className={styles.signinButton}
+                     onClick={login}
+                  >
                      Login
                   </button>
                </div>

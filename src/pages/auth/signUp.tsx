@@ -50,6 +50,7 @@ const SignUp: NextPage = () => {
 
    return (
       <main className={styles.signUp}>
+         <h1>{auth.currentUser?.email}</h1>
          <div className={styles.formBox}>
             <Image
                className="flex justify-center"
