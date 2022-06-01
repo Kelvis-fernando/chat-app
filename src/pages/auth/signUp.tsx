@@ -5,6 +5,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 import { SignIn } from "phosphor-react";
 import Image from "next/image";
+import { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../firebase.config";
 
 interface SignUpInputs {
    username: string;
@@ -14,6 +17,27 @@ interface SignUpInputs {
 }
 
 const SignUp: NextPage = () => {
+   const [dataFromRegister, setDataFromRegister] = useState<
+      SignUpInputs | undefined
+   >();
+   const registerAccount = async () => {
+      try {
+         if (
+            dataFromRegister?.email !== undefined &&
+            dataFromRegister?.password !== undefined
+         ) {
+            await createUserWithEmailAndPassword(
+               auth,
+               dataFromRegister?.email,
+               dataFromRegister?.password
+            );
+            alert("Sucesso");
+         }
+      } catch (error) {
+         alert(error);
+      }
+   };
+
    const {
       register,
       handleSubmit,
@@ -21,7 +45,8 @@ const SignUp: NextPage = () => {
       formState: { errors },
    } = useForm<SignUpInputs>();
 
-   const onSubmit: SubmitHandler<SignUpInputs> = (resp) => console.log(resp);
+   const onSubmit: SubmitHandler<SignUpInputs> = (dataFromRegister) =>
+      setDataFromRegister(dataFromRegister);
 
    return (
       <main className={styles.signUp}>
@@ -114,7 +139,11 @@ const SignUp: NextPage = () => {
                </div>
 
                <div className="my-6 flex justify-center">
-                  <button type="submit" className={styles.signupButton}>
+                  <button
+                     type="submit"
+                     className={styles.signupButton}
+                     onClick={registerAccount}
+                  >
                      Sign Up
                   </button>
                </div>

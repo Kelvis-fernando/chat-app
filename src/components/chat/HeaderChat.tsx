@@ -7,11 +7,8 @@ import Link from "next/link";
 import styles from "../../styles/chat/Headerchat.module.scss";
 
 const HeaderChat: NextPage = () => {
-   function classNames(...classes: any) {
-      return classes.filter(Boolean).join(" ");
-   }
    return (
-      <header>
+      <header className="border-b-[1px]">
          <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-zinc-900">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                <Link href="/chat" className="flex items-center cursor-pointer">

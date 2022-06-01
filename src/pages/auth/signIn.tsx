@@ -4,6 +4,7 @@ import styles from "../../styles/auth/SignIn.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 import Image from "next/image";
+import { useState } from "react";
 
 interface signIn {
    email: string;
@@ -11,14 +12,17 @@ interface signIn {
 }
 
 const SignIn: NextPage = () => {
+   const [emailAndPassword, setEmailAndPassword] = useState<signIn>();
+   const login = async () => {};
+
    const {
       register,
       handleSubmit,
       watch,
       formState: { errors },
    } = useForm<signIn>();
-
-   const onSubmit: SubmitHandler<signIn> = (data) => console.log(data);
+   const onSubmit: SubmitHandler<signIn> = (formData) =>
+      setEmailAndPassword(formData);
 
    return (
       <main className={styles.signIn}>
