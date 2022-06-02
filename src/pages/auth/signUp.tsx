@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { SignIn } from "phosphor-react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase.config";
+import { ErrorAlert, SuccessAlert } from "../../components/alert/SignInAlert";
 
 import Link from "next/link";
 import styles from "../../styles/auth/SignUp.module.scss";
@@ -16,7 +17,12 @@ interface SignUpInputs {
 }
 
 function SignUp() {
-   const {register, handleSubmit, watch, formState: { errors }} = useForm<SignUpInputs>();
+   const {
+      register,
+      handleSubmit,
+      watch,
+      formState: { errors },
+   } = useForm<SignUpInputs>();
 
    async function registerAccount(dataFromRegister: SignUpInputs) {
       try {
@@ -29,10 +35,10 @@ function SignUp() {
                dataFromRegister?.email,
                dataFromRegister?.password
             );
-            alert("Success SignUp registration!");
+            SuccessAlert("Sign Up Success");
          }
       } catch (error) {
-         alert(error);
+         ErrorAlert(error);
       }
    }
 

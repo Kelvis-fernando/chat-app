@@ -20,7 +20,9 @@
     "react-hook-form": "^7.31.3",
     "sass": "^1.52.1",
     "socket.io": "^4.5.1",
-    "socket.io-client": "^4.5.1"
+    "socket.io-client": "^4.5.1",
+    "sweetalert2": "^11.4.17",
+    "sweetalert2-react-content": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "17.0.36",

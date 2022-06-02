@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { auth } from "../../../firebase.config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { ErrorAlert, SuccessAlert } from "../../components/alert/SignInAlert";
 
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 import Image from "next/image";
@@ -14,7 +15,12 @@ interface SignIn {
 }
 
 export default function SignIn() {
-   const {register, handleSubmit, watch, formState: { errors }} = useForm<SignIn>();
+   const {
+      register,
+      handleSubmit,
+      watch,
+      formState: { errors },
+   } = useForm<SignIn>();
 
    async function login(userEmailAndPassword: SignIn) {
       try {
@@ -27,11 +33,11 @@ export default function SignIn() {
                userEmailAndPassword?.email,
                userEmailAndPassword?.password
             );
-            alert("Success Sign In");
+            SuccessAlert("Sign In Success");
             location.href = "/chat";
          }
       } catch (error) {
-         alert(error);
+         ErrorAlert(error);
       }
    }
    const onSubmit: SubmitHandler<SignIn> = async (userEmailAndPassword) => {
