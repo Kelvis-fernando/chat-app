@@ -8,6 +8,7 @@ import Link from "next/link";
 import styles from "../../styles/auth/ForgotPassword.module.scss";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 import Image from "next/image";
+import Head from "next/head";
 
 interface ForgotPasswordInput {
    email: string;
@@ -37,6 +38,14 @@ export default function ForgotPassword() {
 
    return (
       <main className={styles.ForgotPassword}>
+         <Head>
+            <title>Forgot Password</title>
+            <meta
+               name="viewport"
+               content="initial-scale=1.0, width=device-width"
+            />
+            <link rel="icon" href="/chatapp-icon.png" />
+         </Head>
          <div className={styles.formBox}>
             <Image
                className="flex justify-center"

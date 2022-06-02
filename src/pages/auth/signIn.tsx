@@ -5,6 +5,7 @@ import { ErrorAlert, SuccessAlert } from "../../components/alert/SignInAlert";
 
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 import Image from "next/image";
+import Head from "next/head";
 import Link from "next/link";
 import styles from "../../styles/auth/SignIn.module.scss";
 
@@ -45,6 +46,14 @@ export default function SignIn() {
 
    return (
       <main className={styles.signIn}>
+         <Head>
+            <title>Sign In</title>
+            <meta
+               name="viewport"
+               content="initial-scale=1.0, width=device-width"
+            />
+            <link rel="icon" href="/chatapp-icon.png" />
+         </Head>
          <div className={styles.formBox}>
             <Image
                className="flex justify-center"

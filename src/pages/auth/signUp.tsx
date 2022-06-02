@@ -8,6 +8,7 @@ import Link from "next/link";
 import styles from "../../styles/auth/SignUp.module.scss";
 import Image from "next/image";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
+import Head from "next/head";
 
 interface SignUpInputs {
    username: string;
@@ -48,6 +49,14 @@ function SignUp() {
 
    return (
       <main className={styles.signUp}>
+         <Head>
+            <title>Sign Up</title>
+            <meta
+               name="viewport"
+               content="initial-scale=1.0, width=device-width"
+            />
+            <link rel="icon" href="/chatapp-icon.png" />
+         </Head>
          <h1>{auth.currentUser?.email}</h1>
          <div className={styles.formBox}>
             <Image

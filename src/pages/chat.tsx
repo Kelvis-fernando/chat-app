@@ -1,16 +1,26 @@
+import { Plus, MagnifyingGlass } from "phosphor-react";
+import { useState } from "react";
+
 import styles from "../styles/chat/Chat.module.scss";
 import HeaderChat from "../components/chat/HeaderChat";
 import WriteAndSendMessage from "../components/chat/WriteAndSendMessage";
 import Contacts from "../components/chat/Contacts";
-import { Plus, MagnifyingGlass } from "phosphor-react";
-import { useState } from "react";
 import MessageArea from "../components/chat/MessageArea";
+import Head from "next/head";
 
 const Chat = () => {
    const [toogleInputView, setToogleInputView] = useState(false);
 
    return (
       <main className={styles.chat}>
+         <Head>
+            <title>Chat App</title>
+            <meta
+               name="viewport"
+               content="initial-scale=1.0, width=device-width"
+            />
+            <link rel="icon" href="/chatapp-icon.png" />
+         </Head>
          <aside className={styles.contactsArea}>
             <div className={styles.contactsHeader}>
                <h2>Chats</h2>
