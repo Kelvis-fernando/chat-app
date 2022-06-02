@@ -1,13 +1,12 @@
-import type { NextPage } from "next";
-import Link from "next/link";
-import styles from "../../styles/auth/SignUp.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
-import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 import { SignIn } from "phosphor-react";
-import Image from "next/image";
-import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase.config";
+
+import Link from "next/link";
+import styles from "../../styles/auth/SignUp.module.scss";
+import Image from "next/image";
+import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 
 interface SignUpInputs {
    username: string;
@@ -16,11 +15,10 @@ interface SignUpInputs {
    confirmpassword: string;
 }
 
-const SignUp: NextPage = () => {
-   const [dataFromRegister, setDataFromRegister] = useState<
-      SignUpInputs | undefined
-   >();
-   const registerAccount = async () => {
+function SignUp() {
+   const {register, handleSubmit, watch, formState: { errors }} = useForm<SignUpInputs>();
+
+   async function registerAccount(dataFromRegister: SignUpInputs) {
       try {
          if (
             dataFromRegister?.email !== undefined &&
@@ -31,22 +29,16 @@ const SignUp: NextPage = () => {
                dataFromRegister?.email,
                dataFromRegister?.password
             );
-            alert("Sucesso");
+            alert("Success SignUp registration!");
          }
       } catch (error) {
          alert(error);
       }
-   };
+   }
 
-   const {
-      register,
-      handleSubmit,
-      watch,
-      formState: { errors },
-   } = useForm<SignUpInputs>();
-
-   const onSubmit: SubmitHandler<SignUpInputs> = (dataFromRegister) =>
-      setDataFromRegister(dataFromRegister);
+   function onSubmit(dataFromRegister: SignUpInputs) {
+      registerAccount(dataFromRegister);
+   }
 
    return (
       <main className={styles.signUp}>
@@ -140,11 +132,7 @@ const SignUp: NextPage = () => {
                </div>
 
                <div className="my-6 flex justify-center">
-                  <button
-                     type="submit"
-                     className={styles.signupButton}
-                     onClick={registerAccount}
-                  >
+                  <button type="submit" className={styles.signupButton}>
                      Sign Up
                   </button>
                </div>
@@ -174,6 +162,6 @@ const SignUp: NextPage = () => {
          </svg>
       </main>
    );
-};
+}
 
 export default SignUp;
