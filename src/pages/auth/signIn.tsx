@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import { auth } from "../../../firebase.config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useForm, SubmitHandler } from "react-hook-form";

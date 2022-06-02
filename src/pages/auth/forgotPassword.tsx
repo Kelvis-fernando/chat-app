@@ -1,16 +1,19 @@
-import type { NextPage } from "next";
+import { ArrowLeft } from "phosphor-react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../../../firebase.config";
+import { ErrorAlert, SuccessAlert } from "../../components/alert/SignInAlert";
+
 import Link from "next/link";
 import styles from "../../styles/auth/ForgotPassword.module.scss";
-import { useForm, SubmitHandler } from "react-hook-form";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
-import { ArrowLeft } from "phosphor-react";
 import Image from "next/image";
 
 interface ForgotPasswordInput {
    email: string;
 }
 
-const ForgotPassword: NextPage = () => {
+export default function ForgotPassword() {
    const {
       register,
       handleSubmit,
@@ -18,8 +21,19 @@ const ForgotPassword: NextPage = () => {
       formState: { errors },
    } = useForm<ForgotPasswordInput>();
 
-   const onSubmit: SubmitHandler<ForgotPasswordInput> = (resp) =>
-      console.log(resp);
+   async function forgotPassword(email: any) {
+      sendPasswordResetEmail(auth, email)
+         .then(() => {
+            SuccessAlert("Email for recover password was send");
+         })
+         .catch((error) => {
+            ErrorAlert(error);
+         });
+   }
+
+   const onSubmit: SubmitHandler<ForgotPasswordInput> = (resp) => {
+      forgotPassword(resp.email);
+   };
 
    return (
       <main className={styles.ForgotPassword}>
@@ -85,6 +99,4 @@ const ForgotPassword: NextPage = () => {
          </svg>
       </main>
    );
-};
-
-export default ForgotPassword;
+}
