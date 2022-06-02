@@ -1,48 +1,42 @@
 import type { NextPage } from "next";
-import Link from "next/link";
-import styles from "../../styles/auth/SignIn.module.scss";
-import { useForm, SubmitHandler } from "react-hook-form";
-import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
-import Image from "next/image";
-import { useState } from "react";
 import { auth } from "../../../firebase.config";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useForm, SubmitHandler } from "react-hook-form";
 
-interface signIn {
+import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "../../styles/auth/SignIn.module.scss";
+
+interface SignIn {
    email: string;
    password: string;
 }
 
-const SignIn: NextPage = () => {
-   const [emailAndPassword, setEmailAndPassword] = useState<signIn>();
-   const login = async () => {
+export default function SignIn() {
+   const {register, handleSubmit, watch, formState: { errors }} = useForm<SignIn>();
+
+   async function login(userEmailAndPassword: SignIn) {
       try {
          if (
-            emailAndPassword?.email !== undefined &&
-            emailAndPassword?.password !== undefined
+            userEmailAndPassword?.email !== undefined &&
+            userEmailAndPassword?.password !== undefined
          ) {
-            const user = await signInWithEmailAndPassword(
+            await signInWithEmailAndPassword(
                auth,
-               emailAndPassword?.email,
-               emailAndPassword?.password
+               userEmailAndPassword?.email,
+               userEmailAndPassword?.password
             );
-            console.log(user);
-            alert("Sucesso");
+            alert("Success Sign In");
             location.href = "/chat";
          }
       } catch (error) {
          alert(error);
       }
+   }
+   const onSubmit: SubmitHandler<SignIn> = async (userEmailAndPassword) => {
+      await login(userEmailAndPassword);
    };
-
-   const {
-      register,
-      handleSubmit,
-      watch,
-      formState: { errors },
-   } = useForm<signIn>();
-   const onSubmit: SubmitHandler<signIn> = (formData) =>
-      setEmailAndPassword(formData);
 
    return (
       <main className={styles.signIn}>
@@ -97,11 +91,7 @@ const SignIn: NextPage = () => {
                   </div>
                </div>
                <div className="my-6 flex justify-center">
-                  <button
-                     type="submit"
-                     className={styles.signinButton}
-                     onClick={login}
-                  >
+                  <button type="submit" className={styles.signinButton}>
                      Login
                   </button>
                </div>
@@ -132,6 +122,4 @@ const SignIn: NextPage = () => {
          </svg>
       </main>
    );
-};
-
-export default SignIn;
+}

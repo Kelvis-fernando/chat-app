@@ -4,7 +4,7 @@ import WriteAndSendMessage from "../components/chat/WriteAndSendMessage";
 import Contacts from "../components/chat/Contacts";
 import { Plus, MagnifyingGlass } from "phosphor-react";
 import { useState } from "react";
-import MessageLocal from "../components/chat/MessageLocal";
+import MessageArea from "../components/chat/MessageArea";
 
 const Chat = () => {
    const [toogleInputView, setToogleInputView] = useState(false);
@@ -39,72 +39,12 @@ const Chat = () => {
                   <li>
                      <Contacts />
                   </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
-                  <li>
-                     <Contacts />
-                  </li>
                </ul>
             </div>
          </aside>
          <div className={styles.messageArea}>
             <HeaderChat />
-            <MessageLocal />
+            <MessageArea />
             <WriteAndSendMessage />
          </div>
       </main>
