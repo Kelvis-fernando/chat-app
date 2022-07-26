@@ -7,12 +7,15 @@ import WriteAndSendMessage from "../components/chat/WriteAndSendMessage";
 import Contacts from "../components/chat/Contacts";
 import MessageArea from "../components/chat/MessageArea";
 import Head from "next/head";
+import AddContact from "../components/chat/AddContact"
 
 const Chat = () => {
    const [toogleInputView, setToogleInputView] = useState(false);
+   const [openAddContact, setOpenAddContact] = useState(false);
 
    return (
       <main className={styles.chat}>
+         {openAddContact && <AddContact />}
          <Head>
             <title>Chat App</title>
             <meta
@@ -42,6 +45,7 @@ const Chat = () => {
                <Plus
                   size={20}
                   className="text-blue-700 hover:text-blue-600 font-bold"
+                  onClick={() => setOpenAddContact(!openAddContact)}
                />
             </div>
             <div className="overflow-scroll max-h-[85%] overflow-x-hidden scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin">
