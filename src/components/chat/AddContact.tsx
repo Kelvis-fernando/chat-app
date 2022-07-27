@@ -1,14 +1,43 @@
-import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import styles from "../../styles/chat/AddContact.module.scss";
-import Head from "next/head";
+import { useState } from "react";
 
 interface AddContact {
    email: string;
+   message: string;
+}
+
+const MySwal = withReactContent(Swal);
+
+function SuccessAlert() {
+   MySwal.fire({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+         toast.addEventListener("mouseenter", Swal.stopTimer);
+         toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+      icon: "success",
+      title: "Contact message send success!",
+   });
 }
 
 const AddContact = () => {
+   function SendMessageForContact(emailAndMessage: any) {
+      fetch("api/chat/addnewcontact/", {
+         method: "POST",
+         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+         body: JSON.stringify(emailAndMessage),
+      }).then(() => {
+         SuccessAlert();
+      });
+   }
+
    const {
       register,
       handleSubmit,
@@ -16,13 +45,15 @@ const AddContact = () => {
       formState: { errors },
    } = useForm<AddContact>();
 
-   const onSubmit: SubmitHandler<AddContact> = async (email) => {
-      console.log(email);
+   const onSubmit: SubmitHandler<AddContact> = async (emailAndMessage) => {
+      return SendMessageForContact(emailAndMessage);
    };
 
    return (
       <div className={styles.addContact}>
-         <h1 className="self-center text-xl font-semibold whitespace-nowrap dark:text-white flex cursor-pointer">Add new contact</h1>
+         <h1 className="self-center text-xl font-semibold whitespace-nowrap dark:text-white flex cursor-pointer">
+            Add new contact
+         </h1>
          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mt-6">
                <label
@@ -38,6 +69,16 @@ const AddContact = () => {
                      id="email"
                      className={styles.addContactInput}
                      placeholder="email@example.com"
+                     required
+                  />
+               </div>
+               <div className="mt-1">
+                  <input
+                     {...register("message", { required: true })}
+                     type="text"
+                     id="message"
+                     className={styles.addContactInput}
+                     placeholder="Send a message"
                      required
                   />
                </div>
