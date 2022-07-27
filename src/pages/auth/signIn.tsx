@@ -22,7 +22,7 @@ export default function SignIn() {
       formState: { errors },
    } = useForm<SignIn>();
 
-   async function login(userEmailAndPassword: SignIn) {
+   async function signIn(userEmailAndPassword: SignIn) {
       try {
          if (
             userEmailAndPassword?.email !== undefined &&
@@ -41,7 +41,7 @@ export default function SignIn() {
       }
    }
    const onSubmit: SubmitHandler<SignIn> = async (userEmailAndPassword) => {
-      await login(userEmailAndPassword);
+      await signIn(userEmailAndPassword);
    };
 
    return (
@@ -106,7 +106,7 @@ export default function SignIn() {
                </div>
                <div className="my-6 flex justify-center">
                   <button type="submit" className={styles.signinButton}>
-                     Login
+                     signIn
                   </button>
                </div>
                <div className={styles.links}>
