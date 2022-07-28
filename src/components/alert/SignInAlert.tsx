@@ -5,19 +5,32 @@ const MySwal = withReactContent(Swal);
 
 export async function SuccessAlert(message: string) {
    await MySwal.fire({
-      position: "center",
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+         toast.addEventListener("mouseenter", Swal.stopTimer);
+         toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
       icon: "success",
       title: message,
-      showConfirmButton: false,
-      timer: 1500,
    });
 }
 
 export async function ErrorAlert(message: any) {
    await MySwal.fire({
-      position: "center",
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+         toast.addEventListener("mouseenter", Swal.stopTimer);
+         toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
       icon: "error",
-      title: message,
-      showConfirmButton: true,
+      title: "Error! e-mail or password wrong!",
    });
 }
