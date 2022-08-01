@@ -16,5 +16,13 @@ export default function handler(
          .json({ status: "Method not allowed, only POST  " });
    }
 
+   fetch("https://chat-app-1b664-default-rtdb.firebaseio.com/" + "usuarios.json", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: JSON.stringify(req.body),
+   }).then(() => {
+      console.log("aqui")
+   });
+
    res.send({ status: "Success" });
 }
