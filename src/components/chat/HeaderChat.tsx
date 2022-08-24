@@ -14,7 +14,7 @@ const HeaderChat: NextPage = () => {
    };
    return (
       <header className="border-b-[1px]">
-         <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-zinc-900">
+         <nav className="bg-dark border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-zinc-900">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
                <Link href="/chat" className="flex items-center cursor-pointer">
                   <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white flex cursor-pointer">

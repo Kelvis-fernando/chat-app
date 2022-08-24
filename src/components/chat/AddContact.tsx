@@ -2,8 +2,13 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import styles from "../../styles/chat/AddContact.module.scss";
-import { useState } from "react";
+import { X } from "phosphor-react";
+import { Dispatch, SetStateAction } from "react";
 
+interface Props {
+   openAddContact?: boolean;
+   setOpenAddContact?: Dispatch<SetStateAction<boolean>> | void;
+}
 interface AddContact {
    email: string;
    message: string;
@@ -11,7 +16,7 @@ interface AddContact {
 
 const MySwal = withReactContent(Swal);
 
-function SuccessAlert() {
+const SuccessAlert = () => {
    MySwal.fire({
       toast: true,
       position: "top-end",
@@ -27,7 +32,7 @@ function SuccessAlert() {
    });
 }
 
-const AddContact = () => {
+const AddContact = (props: Props) => {
    function SendMessageForContact(emailAndMessage: any) {
       fetch("api/chat/addnewcontact/", {
          method: "POST",
@@ -51,9 +56,12 @@ const AddContact = () => {
 
    return (
       <div className={styles.addContact}>
-         <h1 className="self-center text-xl font-semibold whitespace-nowrap dark:text-white flex cursor-pointer">
-            Add new contact
-         </h1>
+         <div className="flex space-x-52">
+            <h1 className="self-center text-xl font-semibold whitespace-nowrap dark:text-white flex">
+               Add new contact
+            </h1>
+            <X size={28} className="absolute font-semibold cursor-pointer hover:text-zinc-300 hover:rotate-90 hover:duration-75" onClick={() => console.log(props)} />
+         </div>
          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mt-6">
                <label

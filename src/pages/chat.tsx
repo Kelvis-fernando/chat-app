@@ -15,7 +15,7 @@ const Chat = () => {
 
    return (
       <main className={styles.chat}>
-         {openAddContact && <AddContact />}
+         {openAddContact && <AddContact openAddContact={openAddContact} setOpenAddContact={setOpenAddContact(true)} />}
          <Head>
             <title>Chat App</title>
             <meta
