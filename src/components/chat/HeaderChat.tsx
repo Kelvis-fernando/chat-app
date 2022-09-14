@@ -38,13 +38,13 @@ const HeaderChat: NextPage = () => {
                            className="relative inline-block text-left"
                         >
                            <div>
-                              <Menu.Button className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 text-white text-sm font-medium hover:border">
+                              <Menu.Button className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 text-white text-sm font-medium hover:bg-zinc-700">
                                  <Image
                                     src="/perfil.png"
                                     width={50}
                                     height={50}
                                     className="rounded-full"
-                                    alt="Phoro from perfil"
+                                    alt="Photo from perfil"
                                  />
                                  <ChevronDownIcon
                                     className="-mr-1 ml-2 h-5 w-5"
