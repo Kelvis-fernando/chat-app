@@ -47,13 +47,6 @@ export default function ForgotPassword() {
             <link rel="icon" href="/chatapp-icon.png" />
          </Head>
          <div className={styles.formBox}>
-            <Image
-               className="flex justify-center"
-               src="/chatapp-logo.png"
-               alt="Logo App chat"
-               width={320}
-               height={100}
-            />
             <TitleAndSubtitle
                title={"Forgot you password?"}
                subtitle={"No problem, we will recover it for you!"}

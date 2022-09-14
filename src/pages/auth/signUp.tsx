@@ -59,13 +59,6 @@ function SignUp() {
          </Head>
          <h1>{auth.currentUser?.email}</h1>
          <div className={styles.formBox}>
-            <Image
-               className="flex justify-center"
-               src="/chatapp-logo.png"
-               alt="Logo App chat"
-               width={320}
-               height={100}
-            />
             <TitleAndSubtitle
                title={"Create your own account"}
                subtitle={"Lets do it!"}
