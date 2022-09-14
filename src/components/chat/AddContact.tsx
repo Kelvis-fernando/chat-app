@@ -2,12 +2,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import styles from "../../styles/chat/AddContact.module.scss";
-import { X } from "phosphor-react";
-import { Dispatch, SetStateAction } from "react";
 
 interface Props {
    openAddContact?: boolean;
-   setOpenAddContact?: Dispatch<SetStateAction<boolean>> | void;
 }
 interface AddContact {
    email: string;
@@ -30,17 +27,12 @@ const SuccessAlert = () => {
       icon: "success",
       title: "Contact message send success!",
    });
-}
+};
 
-const AddContact = (props: Props) => {
-   function SendMessageForContact(emailAndMessage: any) {
-      fetch("api/chat/addnewcontact/", {
-         method: "POST",
-         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-         body: JSON.stringify(emailAndMessage),
-      }).then(() => {
-         SuccessAlert();
-      });
+const AddContact = () => {
+   const SendMessageForContact = (emailAndMessage: any) => {
+      console.log(emailAndMessage);
+      return SuccessAlert()
    }
 
    const {
@@ -60,7 +52,6 @@ const AddContact = (props: Props) => {
             <h1 className="self-center text-xl font-semibold whitespace-nowrap dark:text-white flex">
                Add new contact
             </h1>
-            <X size={28} className="absolute font-semibold cursor-pointer hover:text-zinc-300 hover:rotate-90 hover:duration-75" onClick={() => console.log(props)} />
          </div>
          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mt-6">
@@ -80,6 +71,12 @@ const AddContact = (props: Props) => {
                      required
                   />
                </div>
+               <label
+                  htmlFor="message"
+                  className="block text-sm font-medium my-3"
+               >
+                  Message
+               </label>
                <div className="mt-1">
                   <input
                      {...register("message", { required: true })}

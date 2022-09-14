@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import styles from "../../styles/chat/Contacts.module.scss";
 
 const Contacts: NextPage = () => {
@@ -42,13 +41,17 @@ const Contacts: NextPage = () => {
       },
    ];
 
-   function setContactMessage(id: string) {
-      return window.location.href = "/messagearea/" + id;
+   const setContactMessage = (id: string) => {
+      return (window.location.href = "/messagearea/" + id);
    }
 
-   function renderMessages() {
+   const renderMessages = () => {
       return contacts.map((contact, index) => (
-         <div className={styles.contacts} key={index} onClick={() => setContactMessage(contact.id)}>
+         <div
+            className={styles.contacts}
+            key={index}
+            onClick={() => setContactMessage(contact.id)}
+         >
             <Image
                src={contact.photo}
                width={50}
@@ -62,14 +65,10 @@ const Contacts: NextPage = () => {
             </div>
             <span className={styles.timing}>{contact.timeLastMessage}</span>
          </div>
-      ))
+      ));
    }
-   
-   return (
-      <>
-         {renderMessages()}
-      </>
-   )
+
+   return <>{renderMessages()}</>;
 };
 
 export default Contacts;

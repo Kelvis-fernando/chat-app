@@ -15,7 +15,7 @@ const Chat = () => {
 
    return (
       <main className={styles.chat}>
-         {openAddContact && <AddContact openAddContact={openAddContact} setOpenAddContact={setOpenAddContact(true)} />}
+         {openAddContact && <AddContact />}
          <Head>
             <title>Chat App</title>
             <meta
@@ -43,8 +43,8 @@ const Chat = () => {
                   <MagnifyingGlass size={20} className=" font-bold" />
                </button>
                <Plus
-                  size={20}
-                  className="text-blue-700 hover:text-blue-600 font-bold"
+                  size={22}
+                  className="text-white font-bold cursor-pointer hover:text-zinc-300 hover:rotate-45 hover:duration-75"
                   onClick={() => setOpenAddContact(!openAddContact)}
                />
             </div>
