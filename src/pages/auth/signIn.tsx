@@ -1,48 +1,11 @@
-import { auth } from "../../../firebase.config";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { ErrorAlert, SuccessAlert } from "../../components/alert/SignInAlert";
-
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
-import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../../styles/auth/SignIn.module.scss";
-
-interface SignIn {
-   email: string;
-   password: string;
-}
+import { useSignIn } from "../../hooks/auth/useSignIn";
 
 export default function SignIn() {
-   const {
-      register,
-      handleSubmit,
-      watch,
-      formState: { errors },
-   } = useForm<SignIn>();
-
-   async function signIn(userEmailAndPassword: SignIn) {
-      try {
-         if (
-            userEmailAndPassword?.email !== undefined &&
-            userEmailAndPassword?.password !== undefined
-         ) {
-            await signInWithEmailAndPassword(
-               auth,
-               userEmailAndPassword?.email,
-               userEmailAndPassword?.password
-            );
-            SuccessAlert("Sign In Success");
-            location.href = "/chat";
-         }
-      } catch (error) {
-         ErrorAlert(error);
-      }
-   }
-   const onSubmit: SubmitHandler<SignIn> = async (userEmailAndPassword) => {
-      await signIn(userEmailAndPassword);
-   };
+   const { register, handleSubmit, onSubmit, errors } = useSignIn();
 
    return (
       <main className={styles.signIn}>

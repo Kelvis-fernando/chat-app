@@ -1,9 +1,6 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { forgotPasswordService } from "../../service/auth/forgotPasswordService";
-
-interface ForgotPasswordInput {
-   email: string;
-}
+import { ForgotPasswordInput } from "../../types/auth";
 
 export const useForgotPassword = () => {
    const {
