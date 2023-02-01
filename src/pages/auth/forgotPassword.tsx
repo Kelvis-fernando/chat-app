@@ -7,34 +7,11 @@ import { ErrorAlert, SuccessAlert } from "../../components/alert/SignInAlert";
 import Link from "next/link";
 import styles from "../../styles/auth/ForgotPassword.module.scss";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
-import Image from "next/image";
 import Head from "next/head";
-
-interface ForgotPasswordInput {
-   email: string;
-}
+import { useForgotPassword } from "../../hooks/auth/useForgotPassword";
 
 export default function ForgotPassword() {
-   const {
-      register,
-      handleSubmit,
-      watch,
-      formState: { errors },
-   } = useForm<ForgotPasswordInput>();
-
-   async function forgotPassword(email: any) {
-      sendPasswordResetEmail(auth, email)
-         .then(() => {
-            SuccessAlert("Email for recover password was send");
-         })
-         .catch((error) => {
-            ErrorAlert(error);
-         });
-   }
-
-   const onSubmit: SubmitHandler<ForgotPasswordInput> = (resp) => {
-      forgotPassword(resp.email);
-   };
+   const { onSubmit, register, handleSubmit } = useForgotPassword();
 
    return (
       <main className={styles.ForgotPassword}>
