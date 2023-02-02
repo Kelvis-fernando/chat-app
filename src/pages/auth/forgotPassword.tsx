@@ -10,7 +10,7 @@ import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 import Head from "next/head";
 import { useForgotPassword } from "../../hooks/auth/useForgotPassword";
 
-export default function ForgotPassword() {
+const ForgotPassword = () => {
    const { onSubmit, register, handleSubmit } = useForgotPassword();
 
    return (
@@ -78,4 +78,6 @@ export default function ForgotPassword() {
          </svg>
       </main>
    );
-}
+};
+
+export default ForgotPassword;

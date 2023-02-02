@@ -1,17 +1,20 @@
-import { Plus, MagnifyingGlass } from "phosphor-react";
-import { useState } from "react";
-
 import styles from "../styles/chat/Chat.module.scss";
 import HeaderChat from "../components/chat/HeaderChat";
 import WriteAndSendMessage from "../components/chat/WriteAndSendMessage";
 import Contacts from "../components/chat/Contacts";
 import MessageArea from "../components/chat/MessageArea";
 import Head from "next/head";
-import AddContact from "../components/chat/AddContact"
+import AddContact from "../components/chat/AddContact";
+import { Plus, MagnifyingGlass } from "phosphor-react";
+import { useChat } from "../hooks/useChat";
 
 const Chat = () => {
-   const [toogleInputView, setToogleInputView] = useState(false);
-   const [openAddContact, setOpenAddContact] = useState(false);
+   const {
+      toogleInputView,
+      setToogleInputView,
+      openAddContact,
+      setOpenAddContact,
+   } = useChat();
 
    return (
       <main className={styles.chat}>

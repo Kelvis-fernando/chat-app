@@ -3,7 +3,7 @@ import withReactContent from "sweetalert2-react-content";
 
 const MySwal = withReactContent(Swal);
 
-export async function SuccessAlert(message: string) {
+export const SuccessAlert = async (message: string) => {
    await MySwal.fire({
       toast: true,
       position: "top-end",
@@ -17,9 +17,9 @@ export async function SuccessAlert(message: string) {
       icon: "success",
       title: message,
    });
-}
+};
 
-export async function ErrorAlert(message: any) {
+export const ErrorAlert = async (message: string) => {
    await MySwal.fire({
       toast: true,
       position: "top-end",
@@ -33,4 +33,4 @@ export async function ErrorAlert(message: any) {
       icon: "error",
       title: "Error! e-mail or password wrong!",
    });
-}
+};

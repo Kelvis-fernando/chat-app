@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "../../styles/auth/SignIn.module.scss";
 import { useSignIn } from "../../hooks/auth/useSignIn";
 
-export default function SignIn() {
+const SignIn = () => {
    const { register, handleSubmit, onSubmit, errors } = useSignIn();
 
    return (
@@ -92,4 +92,6 @@ export default function SignIn() {
          </svg>
       </main>
    );
-}
+};
+
+export default SignIn;

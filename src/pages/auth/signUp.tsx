@@ -6,7 +6,7 @@ import { SignIn } from "phosphor-react";
 import { auth } from "../../../firebase.config";
 import { useSignUp } from "../../hooks/auth/useSignUp";
 
-function SignUp() {
+const SignUp = () => {
    const { register, handleSubmit, watch, onSubmit, errors } = useSignUp();
 
    return (
@@ -132,6 +132,6 @@ function SignUp() {
          </svg>
       </main>
    );
-}
+};
 
 export default SignUp;
