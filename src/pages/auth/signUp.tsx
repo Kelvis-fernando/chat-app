@@ -1,51 +1,13 @@
-import { useForm, SubmitHandler } from "react-hook-form";
-import { SignIn } from "phosphor-react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../firebase.config";
-import { ErrorAlert, SuccessAlert } from "../../components/alert/SignInAlert";
-
 import Link from "next/link";
 import styles from "../../styles/auth/SignUp.module.scss";
-import Image from "next/image";
 import TitleAndSubtitle from "../../components/layout/TitleAndSubtitle";
 import Head from "next/head";
-
-interface SignUpInputs {
-   username: string;
-   email: string;
-   password: string;
-   confirmpassword: string;
-}
+import { SignIn } from "phosphor-react";
+import { auth } from "../../../firebase.config";
+import { useSignUp } from "../../hooks/auth/useSignUp";
 
 function SignUp() {
-   const {
-      register,
-      handleSubmit,
-      watch,
-      formState: { errors },
-   } = useForm<SignUpInputs>();
-
-   async function registerAccount(dataFromRegister: SignUpInputs) {
-      try {
-         if (
-            dataFromRegister?.email !== undefined &&
-            dataFromRegister?.password !== undefined
-         ) {
-            await createUserWithEmailAndPassword(
-               auth,
-               dataFromRegister?.email,
-               dataFromRegister?.password
-            );
-            SuccessAlert("Sign Up Success");
-         }
-      } catch (error) {
-         ErrorAlert(error);
-      }
-   }
-
-   function onSubmit(dataFromRegister: SignUpInputs) {
-      registerAccount(dataFromRegister);
-   }
+   const { register, handleSubmit, watch, onSubmit, errors } = useSignUp();
 
    return (
       <main className={styles.signUp}>

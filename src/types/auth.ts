@@ -6,3 +6,10 @@ export interface SignIn {
 export interface ForgotPasswordInput {
    email: string;
 }
+
+export interface SignUpInputs {
+   username: string;
+   email: string;
+   password: string;
+   confirmpassword: string;
+}

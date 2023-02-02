@@ -20,5 +20,6 @@ export const useForgotPassword = () => {
       register,
       handleSubmit,
       watch,
+      errors,
    };
 };
