@@ -1,5 +1,5 @@
 .signUp {
-   @apply flex justify-center items-center bg-zinc-700 h-[70vh] text-white mt-2;
+   @apply flex justify-center  bg-zinc-700 sm:h-[100vh] lg:h-[78vh] text-white mt-2;
 
    .formBox {
       @apply bg-zinc-600 p-5 rounded-lg z-50 h-[95%];

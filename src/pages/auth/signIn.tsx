@@ -73,7 +73,7 @@ const SignIn = () => {
                   </Link>
                   <Link href={"/auth/forgotPassword"}>
                      <p className=" hover:text-zinc-300 mt-1 mr-2 cursor-pointer">
-                        Forgot yout password?
+                        Forgot your password?
                      </p>
                   </Link>
                </div>

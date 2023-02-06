@@ -16,5 +16,9 @@
    .links {
       display: flex;
       justify-content: space-between;
+
+      p {
+         @apply text-sm;
+      }
    }
 }

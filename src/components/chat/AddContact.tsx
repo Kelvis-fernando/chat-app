@@ -3,9 +3,6 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import styles from "../../styles/chat/AddContact.module.scss";
 
-interface Props {
-   openAddContact?: boolean;
-}
 interface AddContact {
    email: string;
    message: string;
@@ -31,9 +28,8 @@ const SuccessAlert = () => {
 
 const AddContact = () => {
    const SendMessageForContact = (emailAndMessage: any) => {
-      console.log(emailAndMessage);
-      return SuccessAlert()
-   }
+      return SuccessAlert();
+   };
 
    const {
       register,
