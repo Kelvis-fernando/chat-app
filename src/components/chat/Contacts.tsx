@@ -50,22 +50,32 @@ const Contacts: NextPage = () => {
    const renderMessages = () => {
       return contacts.map((contact, index) => (
          <div
-            className={styles.contacts}
+            className="overflow-scroll max-h-[85%] overflow-x-hidden scrollbar-thumb-zinc-700 scrollbar-track-transparent scrollbar-thin"
             key={index}
-            onClick={() => setContactMessage(contact.id)}
          >
-            <Image
-               src={contact.photo}
-               width={50}
-               height={50}
-               className="rounded"
-               alt="Photo from perfil"
-            />
-            <div className={styles.body}>
-               <p>{contact.name}</p>
-               <p>{contact.lastMessage}</p>
-            </div>
-            <span className={styles.timing}>{contact.timeLastMessage}</span>
+            <ul>
+               <li>
+                  <div
+                     className={styles.contacts}
+                     onClick={() => setContactMessage(contact.id)}
+                  >
+                     <Image
+                        src={contact.photo}
+                        width={50}
+                        height={50}
+                        className="rounded"
+                        alt="Photo from perfil"
+                     />
+                     <div className={styles.body}>
+                        <p>{contact.name}</p>
+                        <p>{contact.lastMessage}</p>
+                     </div>
+                     <span className={styles.timing}>
+                        {contact.timeLastMessage}
+                     </span>
+                  </div>
+               </li>
+            </ul>
          </div>
       ));
    };
